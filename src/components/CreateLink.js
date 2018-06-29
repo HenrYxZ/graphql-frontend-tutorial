@@ -35,6 +35,7 @@ class CreateLink extends Component {
   _createLink = async () => {
     const { description, url } = this.state;
     await this.props.postMutation({variables: {description, url}});
+    this.props.history.push('/');
   }
 }
 
@@ -49,7 +50,7 @@ const POST_MUTATION = gql`
       description
     }
   }
-`
+`;
 
 // 3
 export default graphql(POST_MUTATION, { name: 'postMutation' })(CreateLink)
